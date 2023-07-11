@@ -7,7 +7,7 @@ import SortProductsAd from './SortProductsAd';
 import { axiosClient } from '../../../utils/axios';
 
 export default function Product() {
-    const [currentPro, setCurrentPro] = useState({
+    const [currentProduct, setCurrentProduct] = useState({
         data: {},
         isEdit: false,
         modalOpen: false,
@@ -60,7 +60,7 @@ export default function Product() {
     //handle of Add
 
     const handleAddProduct = () => {
-        setCurrentPro({
+        setCurrentProduct({
             data: {},
             isEdit: false,
             modalOpen: true,
@@ -70,7 +70,7 @@ export default function Product() {
     //handle of detailBtn
 
     const handleDetail = (product) => {
-        setCurrentPro({
+        setCurrentProduct({
             data: product,
             isEdit: true,
             modalOpen: true,
@@ -239,10 +239,10 @@ export default function Product() {
                 </div>
                 {/* ADD PRODUCT */}
                 {
-                    currentPro.modalOpen
+                    currentProduct.modalOpen
                         ?
-                        <AddForm currentPro={currentPro}
-                            setCurrentPro={setCurrentPro}
+                        <AddForm currentProduct={currentProduct}
+                            setCurrentProduct={setCurrentProduct}
                             setUpdate={setUpdate}
                         />
                         : null

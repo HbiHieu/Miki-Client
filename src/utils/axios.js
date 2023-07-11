@@ -20,13 +20,13 @@ axiosClient.interceptors.request.use(async (config) => {
       try {
         const newAccessToken = await axios({
           method: 'POST',
-          url: `http://miki-shop.somee.com/api/Users/refreshToken?userId=${userId}`,
+          url: `https://localhost:7226/api/Users/refreshToken?userId=${userId}`,
         });
         localStorage.setItem('accessToken', newAccessToken.data.jwt);
         accessToken = newAccessToken.data.jwt;
         localStorage.setItem('expire_at', newAccessToken.data.expire_at);
       } catch (e) {
-        if ((e.response.data = 'Refresh token was expired')) {
+        if ((e.response.data == 'Refresh token was expired')) {
           localStorage.clear();
           window.location.replace('/login');
         }

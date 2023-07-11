@@ -6,7 +6,7 @@ export const convertProductToRequest = (dataForm, idProduct) => {
   const stock = dataForm.stock.map((item) => {
     if (item.price < minPrice) minPrice = item.price;
     return {
-      sizeId: parseInt(item.size),
+      sizeId: parseInt(item.sizeId),
       quantity: parseInt(item.quantity),
       price: item.price,
     };
